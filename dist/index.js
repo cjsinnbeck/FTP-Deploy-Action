@@ -5092,7 +5092,7 @@ class FTPContext {
             // Don't set a timeout yet. Timeout for control sockets is only active during a task, see handle() below.
             socket.setTimeout(0);
             socket.setEncoding(this._encoding);
-            socket.setKeepAlive(true);
+            socket.setKeepAlive(false);
             socket.on("data", data => this._onControlSocketData(data));
             // Server sending a FIN packet is treated as an error.
             socket.on("end", () => this.closeWithError(new Error("Server sent FIN packet unexpectedly, closing connection.")));
